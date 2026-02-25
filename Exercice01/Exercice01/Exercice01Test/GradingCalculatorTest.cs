@@ -8,10 +8,11 @@ namespace Exercice01Test
         [TestMethod]
         public void WhenGetGrade_95_90_Then_A()
         {
-            GradingCalculator gradingCalculator = new GradingCalculator();
-
-            gradingCalculator.Score = 95;
-            gradingCalculator.AttendancePercentage = 90;
+            GradingCalculator gradingCalculator = new GradingCalculator()
+            {
+                Score = 95,
+                AttendancePercentage = 90
+            };
 
             var result = gradingCalculator.GetGrade();
 
@@ -21,10 +22,11 @@ namespace Exercice01Test
         [TestMethod]
         public void WhenGetGrade_85_90_Then_B()
         {
-            GradingCalculator gradingCalculator = new GradingCalculator();
-
-            gradingCalculator.Score = 85;
-            gradingCalculator.AttendancePercentage = 90;
+            GradingCalculator gradingCalculator = new GradingCalculator()
+            {
+                Score = 85,
+                AttendancePercentage = 90
+            };
 
             var result = gradingCalculator.GetGrade();
 
@@ -34,10 +36,12 @@ namespace Exercice01Test
         [TestMethod]
         public void WhenGetGrade_65_90_Then_C()
         {
-            GradingCalculator gradingCalculator = new GradingCalculator();
+            GradingCalculator gradingCalculator = new GradingCalculator()
+            {
+                Score = 65,
+                AttendancePercentage = 90
+            };
 
-            gradingCalculator.Score = 65;
-            gradingCalculator.AttendancePercentage = 90;
 
             var result = gradingCalculator.GetGrade();
 
@@ -47,36 +51,36 @@ namespace Exercice01Test
         [TestMethod]
         public void WhenGetGrade_95_65_Then_B()
         {
-            GradingCalculator gradingCalculator = new GradingCalculator();
-
-            gradingCalculator.Score = 95;
-            gradingCalculator.AttendancePercentage = 65;
+            GradingCalculator gradingCalculator = new GradingCalculator()
+            {
+                Score = 95,
+                AttendancePercentage = 65
+            };                       
 
             var result = gradingCalculator.GetGrade();
-
             Assert.AreEqual('B', result);
         }
 
         [TestMethod]
         public void WhenGetGrade_95_55_Then_F()
         {
-            GradingCalculator gradingCalculator = new GradingCalculator();
-
-            gradingCalculator.Score = 95;
-            gradingCalculator.AttendancePercentage = 55;
-
+            GradingCalculator gradingCalculator = new GradingCalculator()
+            {
+                Score = 95,
+                AttendancePercentage = 55
+            };                      
             var result = gradingCalculator.GetGrade();
-
             Assert.AreEqual('F', result);
         }
 
         [TestMethod]
         public void WhenGetGrade_65_55_Then_F()
         {
-            GradingCalculator gradingCalculator = new GradingCalculator();
-
-            gradingCalculator.Score = 65;
-            gradingCalculator.AttendancePercentage = 55;
+            GradingCalculator gradingCalculator = new GradingCalculator()
+            {
+                Score = 65,
+                AttendancePercentage = 55
+            };
 
             var result = gradingCalculator.GetGrade();
 
@@ -86,13 +90,13 @@ namespace Exercice01Test
         [TestMethod]
         public void WhenGetGrade_50_90_Then_F()
         {
-            GradingCalculator gradingCalculator = new GradingCalculator();
-
-            gradingCalculator.Score = 50;
-            gradingCalculator.AttendancePercentage = 90;
-
+            GradingCalculator gradingCalculator = new GradingCalculator()
+            {
+                Score = 50,
+                AttendancePercentage = 90
+            };
+            
             var result = gradingCalculator.GetGrade();
-
             Assert.AreEqual('F', result);
         }
 

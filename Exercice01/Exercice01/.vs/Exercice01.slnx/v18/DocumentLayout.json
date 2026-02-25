@@ -42,8 +42,7 @@
               "RelativeToolTip": "Exercice01Test\\MSTestSettings.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T11:00:02.528Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-25T11:00:02.528Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "Exercice01\\GradingCalculator.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAEwAgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T10:51:15.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-25T10:51:15.511Z"
             },
             {
               "$type": "Document",
@@ -66,7 +64,7 @@
               "RelativeDocumentMoniker": "Exercice01Test\\GradingCalculatorTest.cs",
               "ToolTip": "C:\\Users\\Administrateur\\OneDrive - M2I\\Bureau\\Testing\\Exercice01\\Exercice01\\Exercice01Test\\GradingCalculatorTest.cs",
               "RelativeToolTip": "Exercice01Test\\GradingCalculatorTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-25T10:50:40.038Z",
               "EditorCaption": ""
@@ -81,8 +79,7 @@
               "RelativeToolTip": "Exercice01\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T10:50:03.943Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-25T10:50:03.943Z"
             }
           ]
         }
