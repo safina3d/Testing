@@ -36,5 +36,11 @@ public class RechercheVilleTest
         );
     }
 
+    [TestMethod]
+    public void WhenRechercher_WithSubstring()
+    {
+        Setup();
+        Assert.IsNotEmpty(_rechercheVille?.Rechercher("ape"));
+    }
 
 }
