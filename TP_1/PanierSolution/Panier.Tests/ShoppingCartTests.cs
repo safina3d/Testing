@@ -93,5 +93,19 @@ public class ShoppingCartTests
         Assert.AreEqual(_shoppingCart.GetTotal(), total );
     }
 
+    [TestMethod]
+    public void WhenApplyDiscount_With10Percent_ThenTotalIsReduced()
+    {
+        Setup();
+        decimal price = 100m;
+        int quantity = 2;
+        decimal discount = 10;
+        decimal total = price * quantity * (100 - discount) / 100m;
+
+        _shoppingCart.AddItem("RAM", price, quantity);
+        _shoppingCart.ApplyDiscount(discount);
+
+        Assert.AreEqual(total, _shoppingCart.GetTotal());
+    }
 
 }

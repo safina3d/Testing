@@ -9,6 +9,8 @@ namespace Panier.Core
 
         private List<CartItem> items = new List<CartItem>();
 
+        private decimal discountValue = 0;
+
         public int GetItemCount() => items.Count;
         
         public void AddItem(string name, decimal price, int quantity)
@@ -23,11 +25,13 @@ namespace Panier.Core
             items.Add(newItem);
         }
 
-        public decimal GetTotal() => items.Aggregate(0m, (total, current) => total += current.Price * current.Quantity);
+        public decimal GetTotal() => items.Aggregate(0m, (total, current) => total += current.Price * current.Quantity) * (1 - discountValue);
         
         public void ApplyDiscount(decimal percentage)
         {
             if (GetItemCount() == 0) throw new ArgumentException("Une remise ne peut pas etre appliquée sur un panier vide.");
+
+            this.discountValue = percentage / 100m;
         }
     }
 }
