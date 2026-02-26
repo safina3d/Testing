@@ -10,7 +10,7 @@ namespace Panier.Core
 
         public int GetItemCount() => items.Count;
         public void AddItem(string name, decimal price, int quantity) => throw new NotImplementedException();
-        public decimal GetTotal() => throw new NotImplementedException();
+        public decimal GetTotal() => items.Aggregate(0m, (total, current) => total += current.Price * current.Quantity);
         public void ApplyDiscount(decimal percentage) => throw new NotImplementedException();
     }
 }
