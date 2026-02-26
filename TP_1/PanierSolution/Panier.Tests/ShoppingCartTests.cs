@@ -28,4 +28,13 @@ public class ShoppingCartTests
         Assert.AreEqual(0, _shoppingCart.GetTotal());
     }
 
+    [TestMethod]
+    public void WhenApplyDiscount_OnEmptyCart_ThenThrowsException()
+    {
+        Setup();
+        Assert.Throws<ArgumentException>(() => _shoppingCart.ApplyDiscount(0.05m));
+    }
+
+
+
 }
