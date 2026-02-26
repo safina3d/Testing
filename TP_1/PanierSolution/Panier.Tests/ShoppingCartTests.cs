@@ -67,5 +67,31 @@ public class ShoppingCartTests
     }
 
 
+    [TestMethod]
+    public void WhenGetTotal_WithOneItem_ThenTotal()
+    {
+        Setup();
+        decimal price = 100m;
+        int quantity = 2;
+        _shoppingCart.AddItem("RAM", price, quantity);        
+        Assert.AreEqual(_shoppingCart.GetTotal(), price * quantity);        
+    }
+
+    [TestMethod]
+    public void WhenGetTotal_WithMultipleItems_ThenTotal()
+    {
+        Setup();
+        decimal price = 100m;
+        int quantity = 2;
+        _shoppingCart.AddItem("RAM", price, quantity);
+
+        decimal price2 = 300m;
+        int quantity2 = 4;
+        _shoppingCart.AddItem("CG", price2, quantity2);
+
+        var total = (price * quantity) + (price2 * quantity2);
+        Assert.AreEqual(_shoppingCart.GetTotal(), total );
+    }
+
 
 }
