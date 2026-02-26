@@ -20,4 +20,12 @@ public class ShoppingCartTests
         Assert.AreEqual(0, _shoppingCart.GetItemCount());
     }
 
+
+    [TestMethod]
+    public void WhenGetTotal_ThenTotalIsZero()
+    {
+        Setup();
+        Assert.AreEqual(0, _shoppingCart.GetTotal());
+    }
+
 }
