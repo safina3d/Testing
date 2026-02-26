@@ -26,4 +26,15 @@ public class RechercheVilleTest
         Assert.IsTrue(result);
     }
 
+    [TestMethod]
+    public void WhenRechercher_IsNotCaseSensitive()
+    {
+        Setup();
+        CollectionAssert.AreEquivalent(
+            _rechercheVille?.Rechercher("Va"), 
+            _rechercheVille?.Rechercher("va")            
+        );
+    }
+
+
 }
