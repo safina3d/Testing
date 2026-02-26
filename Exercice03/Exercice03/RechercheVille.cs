@@ -6,15 +6,15 @@ namespace Exercice03;
 
 public class RechercheVille
 {
-    private List<String> _villes = new List<String>() {
-        "Paris", "Budapest", "Skopje", "Rotterdam", "Valence",
-        "Vancouver", "Amsterdam", "Vienne", "Sydney", "New York", 
-        "Londres", "Bangkok", "Hong Kong", "Dubaï", "Rome", "Istanbul"
-    };
+    private List<String> _villes;
 
+    public List<String> Villes { get { return _villes; } }
 
-    public List<String> Villes {  get { return _villes; } }
-
+    public RechercheVille(List<String> villes)
+    {
+        this._villes = villes;
+    }
+    
 
     public List<String> Rechercher(String mot)
     {

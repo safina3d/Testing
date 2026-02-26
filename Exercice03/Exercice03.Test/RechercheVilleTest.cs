@@ -7,7 +7,11 @@ public class RechercheVilleTest
     
     public void Setup()
     {
-        _rechercheVille = new RechercheVille();
+        _rechercheVille = new RechercheVille(new List<String>() {
+            "Paris", "Budapest", "Skopje", "Rotterdam", "Valence",
+            "Vancouver", "Amsterdam", "Vienne", "Sydney", "New York",
+            "Londres", "Bangkok", "Hong Kong", "Dubaï", "Rome", "Istanbul"
+        });
     }
 
     [TestMethod]
