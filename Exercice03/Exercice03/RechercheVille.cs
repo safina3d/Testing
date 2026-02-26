@@ -18,6 +18,8 @@ public class RechercheVille
 
     public List<String> Rechercher(String mot)
     {
+        if(mot == "*") return _villes;
+
         if (mot.Length < 2) throw new NotFoundException("Le nom de la ville doit contenir au moins 2 caractères");
 
         mot = mot.Trim().ToLower();
