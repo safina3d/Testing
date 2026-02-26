@@ -15,6 +15,6 @@ namespace Panier.Core
 
         public string Name { get; }
         public decimal Price { get; }
-        public int Quantity { get; }
+        public int Quantity { get; set; }
     }
 }

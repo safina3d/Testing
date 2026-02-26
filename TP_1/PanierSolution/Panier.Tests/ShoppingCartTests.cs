@@ -178,5 +178,25 @@ public class ShoppingCartTests
         Assert.Throws<ArgumentException>(() => _shoppingCart.ApplyDiscount(discount));
     }
 
+    [TestMethod]
+    public void WhenAddItem_WithExistingName_ThenItThrowsException()
+    {
+        Setup();
+        decimal price = 100m;
+        int quantity = 2;
+        _shoppingCart.AddItem("RAM", price, quantity);
+
+        decimal price2 = 300m;
+        int quantity2 = 4;
+
+        Assert.Throws<InvalidOperationException>(() => _shoppingCart.AddItem("RAM", price2, quantity2));
+
+
+    }
+
+
+
+
+
 
 }

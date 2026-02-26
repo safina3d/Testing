@@ -24,8 +24,23 @@ namespace Panier.Core
 
             if (quantity <= 0) throw new ArgumentException("La quantité doit etre plus grande que 0");
 
-            CartItem newItem = new CartItem(name, price, quantity);
-            items.Add(newItem);
+            var existingItem = items.Find(x => x.Name == name);
+
+            if (existingItem != null)
+            {
+                if(existingItem.Price != price)
+                {
+                    throw new InvalidOperationException($"Un article ({name}) existe et avec un prix different.");
+                } else
+                {
+                    existingItem.Quantity += quantity;
+                }
+            } 
+            else
+            {
+                CartItem newItem = new CartItem(name, price, quantity);
+                items.Add(newItem);
+            }
         }
 
         public decimal GetTotal() => items.Aggregate(0m, (total, current) => total += current.Price * current.Quantity) * (1 - discountValue);
