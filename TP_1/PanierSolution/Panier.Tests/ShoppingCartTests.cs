@@ -36,5 +36,14 @@ public class ShoppingCartTests
     }
 
 
+    [TestMethod]
+    public void WhenAddItem_ThenItemCountIsUp()
+    {
+        Setup();
+        int before = _shoppingCart.GetItemCount();
+        _shoppingCart.AddItem("RAM", 999m, 2);
+        Assert.AreEqual(before + 1, _shoppingCart.GetItemCount());
+    }
+
 
 }
