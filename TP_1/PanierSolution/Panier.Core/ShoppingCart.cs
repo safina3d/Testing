@@ -11,7 +11,8 @@ namespace Panier.Core
 
         private decimal discountValue = 0;
 
-        // private bool 
+        private bool discountAleadyApplied = false;
+        
 
         public int GetItemCount() => items.Count;
         
@@ -31,6 +32,8 @@ namespace Panier.Core
         
         public void ApplyDiscount(decimal percentage)
         {
+            if (discountAleadyApplied) throw new ArgumentException("Une remise a deja été appliquée");
+
             if (GetItemCount() == 0) throw new ArgumentException("Une remise ne peut pas etre appliquée sur un panier vide.");
 
             if (percentage < 0) throw new ArgumentException("Une remise ne peut pas etre négative.");
@@ -38,6 +41,13 @@ namespace Panier.Core
             if (percentage > 100) throw new ArgumentException("Une remise ne peut pas etre superieur à 100%.");
 
             this.discountValue = percentage / 100m;
+            this.discountAleadyApplied = true;
+        }
+
+        public void ResetDiscount()
+        {
+            this.discountAleadyApplied = false;
+            this.discountValue = 0;
         }
     }
 }
