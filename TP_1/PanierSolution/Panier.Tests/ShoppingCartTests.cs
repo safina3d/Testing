@@ -124,6 +124,34 @@ public class ShoppingCartTests
         Assert.AreEqual(total, _shoppingCart.GetTotal());
     }
 
+    [TestMethod]
+    public void WhenApplyDiscount_With100PercentDiscount_ThenTotalIsZero()
+    {
+        Setup();
+        decimal price = 100m;
+        int quantity = 2;
+        decimal discount = 100;
+        decimal total = price * quantity * (100 - discount) / 100m;
+
+        _shoppingCart.AddItem("RAM", price, quantity);
+        _shoppingCart.ApplyDiscount(discount);
+
+        Assert.AreEqual(0, _shoppingCart.GetTotal());
+    }
+
+    [TestMethod]
+    public void WhenApplyDiscount_WithNegativeDiscount_ThenThrowsException()
+    {
+        Setup();
+        decimal price = 100m;
+        int quantity = 2;
+        decimal discount = -10;
+        
+        _shoppingCart.AddItem("RAM", price, quantity);        
+        Assert.Throws<ArgumentException>(() => _shoppingCart.ApplyDiscount(discount));
+    }
+
+
 
 
 }

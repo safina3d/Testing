@@ -31,6 +31,8 @@ namespace Panier.Core
         {
             if (GetItemCount() == 0) throw new ArgumentException("Une remise ne peut pas etre appliquée sur un panier vide.");
 
+            if (percentage < 0) throw new ArgumentException("Une remise ne peut pas etre négative.");
+
             this.discountValue = percentage / 100m;
         }
     }
