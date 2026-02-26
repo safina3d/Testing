@@ -151,7 +151,32 @@ public class ShoppingCartTests
         Assert.Throws<ArgumentException>(() => _shoppingCart.ApplyDiscount(discount));
     }
 
+    [TestMethod]
+    public void WhenApplyDiscount_WithOver100Discount_ThenThrowsException()
+    {
+        Setup();
+        decimal price = 100m;
+        int quantity = 2;
+        decimal discount = 150;
 
+        _shoppingCart.AddItem("RAM", price, quantity);
+        Assert.Throws<ArgumentException>(() => _shoppingCart.ApplyDiscount(discount));
+    }
+
+
+    [TestMethod]
+    public void WhenApplyDiscount_ApplyDiscountTwice_ThenThrowsException()
+    {
+        Setup();
+        decimal price = 100m;
+        int quantity = 2;
+        decimal discount = 10;
+
+        _shoppingCart.AddItem("RAM", price, quantity);
+        _shoppingCart.ApplyDiscount(discount);
+
+        Assert.Throws<ArgumentException>(() => _shoppingCart.ApplyDiscount(discount));
+    }
 
 
 }

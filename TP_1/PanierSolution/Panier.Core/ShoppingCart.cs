@@ -11,6 +11,8 @@ namespace Panier.Core
 
         private decimal discountValue = 0;
 
+        // private bool 
+
         public int GetItemCount() => items.Count;
         
         public void AddItem(string name, decimal price, int quantity)
@@ -32,6 +34,8 @@ namespace Panier.Core
             if (GetItemCount() == 0) throw new ArgumentException("Une remise ne peut pas etre appliquée sur un panier vide.");
 
             if (percentage < 0) throw new ArgumentException("Une remise ne peut pas etre négative.");
+
+            if (percentage > 100) throw new ArgumentException("Une remise ne peut pas etre superieur à 100%.");
 
             this.discountValue = percentage / 100m;
         }
