@@ -11,7 +11,7 @@ public class ShoppingCartTests
     {
         _shoppingCart = new ShoppingCart();
     }
-    
+
 
     [TestMethod]
     public void WhenGetItemCountIsCreated_ThenShoppingCartIsEmpty()
@@ -73,8 +73,8 @@ public class ShoppingCartTests
         Setup();
         decimal price = 100m;
         int quantity = 2;
-        _shoppingCart.AddItem("RAM", price, quantity);        
-        Assert.AreEqual(_shoppingCart.GetTotal(), price * quantity);        
+        _shoppingCart.AddItem("RAM", price, quantity);
+        Assert.AreEqual(_shoppingCart.GetTotal(), price * quantity);
     }
 
     [TestMethod]
@@ -90,11 +90,11 @@ public class ShoppingCartTests
         _shoppingCart.AddItem("CG", price2, quantity2);
 
         var total = (price * quantity) + (price2 * quantity2);
-        Assert.AreEqual(_shoppingCart.GetTotal(), total );
+        Assert.AreEqual(_shoppingCart.GetTotal(), total);
     }
 
     [TestMethod]
-    public void WhenApplyDiscount_With10Percent_ThenTotalIsReduced()
+    public void WhenApplyDiscount_With10PercentDiscount_ThenTotalIsReduced()
     {
         Setup();
         decimal price = 100m;
@@ -107,5 +107,23 @@ public class ShoppingCartTests
 
         Assert.AreEqual(total, _shoppingCart.GetTotal());
     }
+
+
+    [TestMethod]
+    public void WhenApplyDiscount_With0PercentDiscount_ThenNoChange()
+    {
+        Setup();
+        decimal price = 100m;
+        int quantity = 2;
+        decimal discount = 0;
+        decimal total = price * quantity;
+
+        _shoppingCart.AddItem("RAM", price, quantity);
+        _shoppingCart.ApplyDiscount(discount);
+
+        Assert.AreEqual(total, _shoppingCart.GetTotal());
+    }
+
+
 
 }
