@@ -37,13 +37,35 @@ public class ShoppingCartTests
 
 
     [TestMethod]
-    public void WhenAddItem_ThenItemCountIsUp()
+    public void WhenAddItem_WithValidItem_ThenItemCountIsUp()
     {
         Setup();
         int before = _shoppingCart.GetItemCount();
         _shoppingCart.AddItem("RAM", 999m, 2);
         Assert.AreEqual(before + 1, _shoppingCart.GetItemCount());
     }
+
+    [TestMethod]
+    public void WhenAddItem_WithNullName_ThenItThrowsException()
+    {
+        Setup();
+        Assert.Throws<ArgumentNullException>(() => _shoppingCart.AddItem(null, 999m, 2));
+    }
+
+    [TestMethod]
+    public void WhenAddItem_WithNegativePrice_ThenItThrowsException()
+    {
+        Setup();
+        Assert.Throws<ArgumentException>(() => _shoppingCart.AddItem("PC", -2.0m, 1));
+    }
+
+    [TestMethod]
+    public void WhenAddItem_WithNegativeQuantity_ThenItThrowsException()
+    {
+        Setup();
+        Assert.Throws<ArgumentException>(() => _shoppingCart.AddItem("PC", 999m, -3));
+    }
+
 
 
 }
