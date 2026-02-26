@@ -17,6 +17,13 @@ public class RechercheVilleTest
         Assert.Throws<NotFoundException>(() => _rechercheVille?.Rechercher("A"));
     }
 
-
+    [TestMethod]
+    public void WhenRechercher_AtLeast2Chars_ThenReturnsAllCitiesStatingWith()
+    {
+        Setup();
+        string word = "Va";
+        var result = _rechercheVille?.Rechercher(word).All(city => city.StartsWith(word));
+        Assert.IsTrue(result);
+    }
 
 }
