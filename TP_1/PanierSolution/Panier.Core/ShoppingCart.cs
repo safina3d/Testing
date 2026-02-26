@@ -11,6 +11,9 @@ namespace Panier.Core
         public int GetItemCount() => items.Count;
         public void AddItem(string name, decimal price, int quantity) => throw new NotImplementedException();
         public decimal GetTotal() => items.Aggregate(0m, (total, current) => total += current.Price * current.Quantity);
-        public void ApplyDiscount(decimal percentage) => throw new NotImplementedException();
+        public void ApplyDiscount(decimal percentage)
+        {
+            if (GetItemCount() == 0) throw new ArgumentException("Une remise ne peut pas etre appliquée sur un panier vide.");
+        }
     }
 }
