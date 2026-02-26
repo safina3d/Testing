@@ -5,5 +5,19 @@ namespace Panier.Tests;
 [TestClass]
 public class ShoppingCartTests
 {
-   
+    private ShoppingCart _shoppingCart;
+
+    private void Setup()
+    {
+        _shoppingCart = new ShoppingCart();
+    }
+    
+
+    [TestMethod]
+    public void WhenGetItemCountIsCreated_ThenShoppingCartIsEmpty()
+    {
+        Setup();
+        Assert.AreEqual(0, _shoppingCart.GetItemCount());
+    }
+
 }
