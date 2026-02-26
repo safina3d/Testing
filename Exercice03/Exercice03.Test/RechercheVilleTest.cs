@@ -42,5 +42,11 @@ public class RechercheVilleTest
         Setup();
         Assert.IsNotEmpty(_rechercheVille?.Rechercher("ape"));
     }
-
+    
+    [TestMethod]
+    public void WhenRechercher_WithWildcardCharacter_ThenReturnsAllCities()
+    {
+        Setup();
+        CollectionAssert.AreEquivalent(_rechercheVille?.Villes, _rechercheVille?.Rechercher("*"));
+    }
 }
